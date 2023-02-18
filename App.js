@@ -29,6 +29,7 @@ const BloodAlcoholCalculator = () => {
 
   return (
     <View style={containerStyles}>
+      <Text style={styles.heading}>Alcometer</Text>
       <View style={styles.inputContainer}>
         <Text style={textStyles}>Weight (kg)</Text>
         <TextInput
@@ -64,7 +65,10 @@ const BloodAlcoholCalculator = () => {
         <Text style={styles.buttonText}>Calculate</Text>
       </TouchableOpacity>
       <Text style={textStyles}>Blood alcohol level:</Text>
-      <Text style={[styles.result, textStyles]}>{grams.toFixed(2)}</Text>
+      <Text style={[styles.result, isDarkMode ? styles.resultDark : null, 
+      grams < 1 ? styles.resultGreen : grams >= 1 && grams <= 2 ? styles.resultOrange : styles.resultRed]}>
+      {grams.toFixed(2)}
+    </Text>
       <View style={styles.toggleContainer}>
         <Text style={textStyles}>Dark mode:</Text>
         <Switch trackColor={{ true: '#f69edf', false: 'grey' }} value={isDarkMode} onValueChange={setIsDarkMode} />

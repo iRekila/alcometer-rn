@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
         width: '90%',
         marginVertical: 10,
     },
+    heading: {
+        fontSize: 36,
+    },
     input: {
         flex: 1,
         height: 40,
@@ -65,6 +68,15 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 20,
         right: 20,
+    },
+    resultGreen: {
+        color: 'green',
+    },
+    resultOrange: {
+        color: 'orange',
+    },
+    resultRed: {
+        color: 'red',
     },
 });
 
