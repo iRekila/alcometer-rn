@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontSize: 36,
+        color: '#f69edf'
     },
     input: {
         flex: 1,
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
         color: '#f69edf',
     },
     button: {
-        backgroundColor: '#f69edf',
+        backgroundColor: '#ad51a0',
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 10,
@@ -78,6 +79,31 @@ const styles = StyleSheet.create({
     resultRed: {
         color: 'red',
     },
+    radioContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+      },
+      radioButton: {
+        flex: 1,
+        borderWidth: 1,
+        borderRadius: 5,
+        borderColor: 'grey',
+        padding: 10,
+        marginHorizontal: 5,
+        backgroundColor: '#fad7f5',
+      },
+      radioButtonSelected: {
+        backgroundColor: '#ad51a0',
+      },
+      genderText: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        color: '#000',
+      },
 });
 
 export default styles;

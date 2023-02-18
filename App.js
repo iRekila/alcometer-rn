@@ -63,10 +63,21 @@ const BloodAlcoholCalculator = () => {
           onChangeText={setTime}
         />
       </View>
-      <View style={styles.switchContainer}>
-        <Switch trackColor={{ true: '#f69edf', false: 'grey' }} value={isMale} onValueChange={setIsMale} />
-        <Text style={styles.genderText}>{isMale ? 'Male' : 'Female'}</Text>
-      </View>
+      <View style={styles.radioContainer}>
+  <TouchableOpacity
+    style={[styles.radioButton, isMale ? styles.radioButtonSelected : null]}
+    onPress={() => setIsMale(true)}
+  >
+    <Text style={styles.genderText}>Male</Text>
+  </TouchableOpacity>
+  <TouchableOpacity
+    style={[styles.radioButton, !isMale ? styles.radioButtonSelected : null]}
+    onPress={() => setIsMale(false)}
+  >
+    <Text style={styles.genderText}>Female</Text>
+  </TouchableOpacity>
+</View>
+
       <TouchableOpacity style={styles.button} onPress={calculate}>
         <Text style={styles.buttonText}>Calculate</Text>
       </TouchableOpacity>
