@@ -104,6 +104,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#000',
       },
+      darkButton: {
+        color: '#000',
+      },
 });
 
 export default styles;

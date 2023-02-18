@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Switch, Alert } from 'react-native';
+import NumericInput from 'react-native-numeric-input';
 import styles from './styles/Styles';
 
 const BloodAlcoholCalculator = () => {
@@ -33,6 +34,20 @@ const BloodAlcoholCalculator = () => {
     textStyles.push(styles.darkText);
   }
 
+  const buttonStyle = {
+    backgroundColor: isDarkMode ? '#3b3b3b' : '#f2f2f2',
+    borderRadius: 5,
+    padding: 5,
+    marginHorizontal: 5,
+  };
+
+  const buttonTextStyle = {
+    color: isDarkMode ? '#fff' : '#000',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  };
+
   return (
     <View style={containerStyles}>
       <Text style={styles.heading}>Alcometer</Text>
@@ -47,36 +62,32 @@ const BloodAlcoholCalculator = () => {
       </View>
       <View style={styles.inputContainer}>
         <Text style={textStyles}>Number of beer bottles</Text>
-        <TextInput
-          style={[styles.input, textStyles]}
-          keyboardType="numeric"
+        <NumericInput
+          onChange={b => setBottles(b)}
           value={bottles}
-          onChangeText={setBottles}
+          minValue={0}
         />
       </View>
       <View style={styles.inputContainer}>
-        <Text style={textStyles}>Time passed since drinking (hours)</Text>
-        <TextInput
-          style={[styles.input, textStyles]}
-          keyboardType="numeric"
+        <Text style={textStyles}>Time passed since drinking</Text> 
+        <NumericInput
+          onChange={b => setTime(b)}
           value={time}
-          onChangeText={setTime}
+          minValue={0}
         />
       </View>
       <View style={styles.radioContainer}>
-  <TouchableOpacity
-    style={[styles.radioButton, isMale ? styles.radioButtonSelected : null]}
-    onPress={() => setIsMale(true)}
-  >
-    <Text style={styles.genderText}>Male</Text>
-  </TouchableOpacity>
-  <TouchableOpacity
-    style={[styles.radioButton, !isMale ? styles.radioButtonSelected : null]}
-    onPress={() => setIsMale(false)}
-  >
-    <Text style={styles.genderText}>Female</Text>
-  </TouchableOpacity>
-</View>
+        <TouchableOpacity
+          style={[styles.radioButton, isMale ? styles.radioButtonSelected : null]}
+          onPress={() => setIsMale(true)}>
+          <Text style={styles.genderText}>Male</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.radioButton, !isMale ? styles.radioButtonSelected : null]}
+          onPress={() => setIsMale(false)}>
+          <Text style={styles.genderText}>Female</Text>
+        </TouchableOpacity>
+      </View>
 
       <TouchableOpacity style={styles.button} onPress={calculate}>
         <Text style={styles.buttonText}>Calculate</Text>
