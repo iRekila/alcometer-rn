@@ -34,20 +34,6 @@ const BloodAlcoholCalculator = () => {
     textStyles.push(styles.darkText);
   }
 
-  const buttonStyle = {
-    backgroundColor: isDarkMode ? '#3b3b3b' : '#f2f2f2',
-    borderRadius: 5,
-    padding: 5,
-    marginHorizontal: 5,
-  };
-
-  const buttonTextStyle = {
-    color: isDarkMode ? '#fff' : '#000',
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  };
-
   return (
     <View style={containerStyles}>
       <Text style={styles.heading}>Alcometer</Text>
